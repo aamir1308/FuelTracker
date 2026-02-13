@@ -1,0 +1,3 @@
+@echo off
+echo Starting FuelTracker...
+docker-compose up

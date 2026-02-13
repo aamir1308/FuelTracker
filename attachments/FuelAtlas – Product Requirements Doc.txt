@@ -1,0 +1,697 @@
+FuelAtlas – Product Requirements Document (PRD)
+SECTION 1: PROJECT IDENTIFICATION
+PROJECT: Fuel Atlas
+VERSION: 1.0.0
+LAST UPDATED: 2026-02-11
+
+SECTION 2: EXECUTIVE SUMMARY
+
+FuelAtlas is a global fuel price intelligence and navigation SaaS platform that helps drivers locate the best nearby fuel stations using near real-time pricing data, route optimization, and intelligent alerts. The application integrates mapping technology with localized fuel price data sources to help users reduce fuel expenses and make smarter refueling decisions.
+
+FuelAtlas targets commuters, daily drivers, long-distance travelers, and commercial drivers who want reliable fuel price comparisons and route-based refueling optimization. By combining geolocation, station pricing analytics, predictive alerts, and multilingual accessibility, FuelAtlas positions itself as a globally scalable, user-friendly, and data-driven driving assistant.
+
+Existing competitors often operate regionally or rely heavily on crowdsourced pricing. FuelAtlas aims to differentiate through standardized global fuel data normalization, predictive pricing insights, multi-country support, and intelligent route cost optimization, creating both consumer and enterprise monetization opportunities.
+
+SECTION 3: PRODUCT DESCRIPTION
+Full Overview
+
+FuelAtlas is a map-centric web application that enables users to discover nearby fuel stations, compare prices in near real-time, receive alerts for price drops, and optimize driving routes based on fuel savings. The platform aggregates data from official government sources, partner APIs, and crowdsourced inputs when required.
+
+Core Functionality
+
+Real-time station discovery using geolocation
+
+Fuel price aggregation and normalization across countries
+
+Interactive Google Maps with station visualization
+
+Route-based cheapest fuel optimization
+
+Price alerts and predictive pricing analytics
+
+Multilingual UI with full I18N support
+
+Ad and affiliate integration support
+
+User Experience Highlights
+
+Interactive map-first interface with dynamic side panels
+
+Smooth navigation and fuel comparison workflows
+
+One-click route generation and station selection
+
+Customizable price alert management dashboard
+
+Fast-loading global station discovery
+
+Unique Selling Points
+
+Global fuel price normalization engine
+
+Route-based fuel cost optimization
+
+Multi-source data trust scoring
+
+Multilingual EU-focused launch strategy
+
+Hybrid monetization via ads, affiliate partnerships, and B2B data feeds
+
+SECTION 4: TARGET AUDIENCE
+Persona 1: Daily Commuter
+
+Age: 25-55
+
+Drives frequently for work
+
+Needs cheapest fuel nearby
+
+Pain Point: Fuel price fluctuations
+
+Goal: Save monthly fuel expenses
+
+Persona 2: Long Distance Traveler
+
+Drives across cities/countries
+
+Needs route-based fuel optimization
+
+Pain Point: Unknown fuel costs during trips
+
+Goal: Predict and minimize refueling costs
+
+Persona 3: Ride-share or Commercial Driver
+
+Drives professionally
+
+Requires accurate and timely price alerts
+
+Pain Point: Fuel costs directly impact earnings
+
+Goal: Optimize profits via cheaper refueling
+
+User Demographics
+
+EU drivers initially
+
+Expansion to global markets
+
+Smartphone + desktop users
+
+Tech comfortable but convenience-focused
+
+SECTION 5: FEATURES & REQUIREMENTS
+Feature 1: Nearby Fuel Station Discovery
+
+Description: Displays nearby stations using geolocation
+
+User Story: As a driver, I want to see nearby fuel stations so I can choose convenient options
+
+Acceptance Criteria:
+
+Displays stations within configurable radius
+
+Loads within 2 seconds
+
+Priority: Must Have
+
+Technical Requirements:
+
+Browser Geolocation API
+
+Google Maps markers
+
+Backend station aggregation API
+
+Feature 2: Real-Time Fuel Price Display
+
+Description: Shows station-specific fuel pricing
+
+User Story: As a user, I want to compare prices so I can save money
+
+Acceptance Criteria:
+
+Displays prices for each fuel type
+
+Shows timestamp and source
+
+Priority: Must Have
+
+Technical Requirements:
+
+Multi-API integration
+
+Data normalization service
+
+Feature 3: Navigation & Route Optimization
+
+Description: Generates driving route and highlights cheapest stations
+
+User Story: As a traveler, I want cheapest stations along my route
+
+Acceptance Criteria:
+
+Generates route with ETA
+
+Suggests cheapest refuel stops
+
+Priority: Must Have
+
+Technical Requirements:
+
+Google Directions API
+
+Route cost optimization engine
+
+Feature 4: Fuel Price Alerts
+
+Description: User-configured price threshold notifications
+
+User Story: As a driver, I want alerts when fuel price drops
+
+Acceptance Criteria:
+
+Supports push/email alerts
+
+Allows fuel-type specific alerts
+
+Priority: Must Have
+
+Technical Requirements:
+
+Background scheduler
+
+Notification service
+
+Feature 5: Global Data Normalization Engine
+
+Description: Standardizes fuel types across countries
+
+User Story: As an international traveler, I want consistent fuel categories
+
+Acceptance Criteria:
+
+Converts naming and units
+
+Priority: Must Have
+
+Feature 6: Multilingual I18N Interface
+
+Description: Supports major European languages
+
+User Story: As a European user, I want localized UI
+
+Acceptance Criteria:
+
+Language switching
+
+Persistent language preference
+
+Priority: Must Have
+
+Feature 7: Data Source Trust Indicator
+
+Description: Shows reliability score of price data
+
+Priority: Should Have
+
+Feature 8: Ad & Affiliate Integration
+
+Description: Monetization support via ads and partnerships
+
+Priority: Should Have
+
+Feature 9: User Profiles & Preferences
+
+Description: Save alerts and preferences
+
+Priority: Should Have
+
+SECTION 6: TECHNICAL SPECIFICATIONS
+Frontend
+
+Framework: React 18 + Vite
+
+Styling: Tailwind CSS
+
+State Management: Zustand
+
+Key Libraries:
+
+react-google-maps/api
+
+i18next
+
+axios
+
+react-router-dom
+
+framer-motion
+
+Backend
+
+Runtime: Node.js
+
+Framework: Express.js
+
+Database: PostgreSQL
+
+Authentication: JWT + OAuth (Google)
+
+APIs & Integrations
+
+Google Maps + Directions API
+
+Fuel price APIs (Tankerkönig, aggregator feeds)
+
+Notification providers (Firebase / Email)
+
+Ad networks (Google Ads, Meta Ads)
+
+Development Tools
+
+Git
+
+npm
+
+ESLint
+
+Prettier
+
+SECTION 7: USER INTERFACE SPECIFICATIONS
+Landing Page
+
+Hero map background
+
+Value proposition
+
+CTA search bar
+
+Main Dashboard
+
+Map view (70%)
+
+Side panel station list (30%)
+
+Station Detail Panel
+
+Fuel prices
+
+Trust indicator
+
+Navigation button
+
+Alerts Management Screen
+
+Alert list
+
+Add/edit modal
+
+User Settings
+
+Language switch
+
+Notification preferences
+
+Responsive Behavior
+
+Mobile collapsible panels
+
+Tablet adaptive layout
+
+Desktop full map view
+
+SECTION 8: DATA MODELS
+User:
+  id: UUID
+  email: string
+  password_hash: string
+  preferred_language: string
+  createdAt: timestamp
+
+Station:
+  id: UUID
+  name: string
+  latitude: float
+  longitude: float
+  country: string
+
+FuelPrice:
+  id: UUID
+  station_id: UUID
+  fuel_type: string
+  price: decimal
+  source: string
+  updatedAt: timestamp
+
+Alert:
+  id: UUID
+  user_id: UUID
+  fuel_type: string
+  threshold_price: decimal
+  station_id: UUID (optional)
+
+SECTION 9: USER FLOWS
+Flow: Onboarding
+
+User visits site
+
+Grants location permission
+
+Map loads nearby stations
+Result: User sees localized stations
+
+Flow: Price Alert Creation
+
+User selects station/fuel type
+
+Enters threshold
+
+Saves alert
+Result: Alert scheduled
+
+Flow: Route Optimization
+
+User enters destination
+
+System calculates route
+
+Suggests cheapest refueling stops
+Result: Cost optimized route displayed
+
+SECTION 10: NON-FUNCTIONAL REQUIREMENTS
+Performance
+
+Page load < 3s
+
+API response < 500ms
+
+5,000 concurrent users MVP
+
+Security
+
+JWT Authentication
+
+HTTPS encryption
+
+Input sanitization
+
+CORS policies
+
+Accessibility
+
+WCAG 2.1 AA
+
+Keyboard navigation
+
+Screen reader support
+
+Browser Support
+
+Chrome, Safari, Firefox, Edge (latest 2 versions)
+
+SECTION 11: IMPLEMENTATION PHASES
+Phase 1: Foundation
+
+Project setup
+
+Map integration
+
+Layout creation
+
+Phase 2: Core Features
+
+Station discovery
+
+Price display
+
+Alerts
+
+Phase 3: Polish
+
+UI refinement
+
+Error handling
+
+Localization
+
+Phase 4: Deployment
+
+Production build
+
+Monitoring
+
+Launch
+
+SECTION 12: TESTING REQUIREMENTS
+Unit Tests
+
+Component rendering
+
+Price calculation utilities
+
+Integration Tests
+
+API data fetching
+
+Alert scheduling
+
+E2E Tests
+
+Search station
+
+Create alert
+
+Route navigation
+
+SECTION 13: DEPLOYMENT & INFRASTRUCTURE
+Platform
+
+Frontend: Vercel
+
+Backend: AWS / Railway
+
+Environment Variables
+GOOGLE_MAPS_API_KEY
+FUEL_API_KEY
+DATABASE_URL
+JWT_SECRET
+EMAIL_SERVICE_KEY
+
+CI/CD
+
+GitHub Actions
+
+Automated tests
+
+Auto deploy
+
+Monitoring
+
+Sentry
+
+Google Analytics
+
+LogRocket
+
+SECTION 14: DOCUMENTATION REQUIREMENTS
+Developer Documentation
+
+Setup guide
+
+API docs
+
+Architecture diagrams
+
+User Documentation
+
+User guide
+
+FAQs
+
+Help center
+
+SECTION 15: SUCCESS METRICS
+
+10,000 users within 6 months
+
+Daily active users > 30%
+
+Alert usage rate > 40%
+
+Ad CTR > 2%
+
+Average page load < 2s
+
+SECTION 16: FUTURE ENHANCEMENTS
+
+AI price prediction engine
+
+EV charging station integration
+
+Fleet management dashboard
+
+Car maintenance reminders
+
+In-app payment integration
+
+SECTION 17: CONSTRAINTS & ASSUMPTIONS
+Constraints
+
+Third-party API reliability
+
+Early-stage budget
+
+Data licensing restrictions
+
+Assumptions
+
+Users have GPS-enabled devices
+
+Stable internet connectivity
+
+Fuel providers publish price data
+
+SECTION 18: IMPLEMENTATION INSTRUCTIONS
+SETUP PHASE
+npm create vite@latest fuelatlas -- --template react
+cd fuelatlas
+npm install
+npm install react-router-dom axios zustand i18next react-i18next @react-google-maps/api framer-motion
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+
+
+Create structure:
+
+src/
+  components/
+  pages/
+  services/
+  hooks/
+  contexts/
+  assets/
+  utils/
+
+FEATURE IMPLEMENTATION
+Station Map Feature
+
+File: src/components/MapView.jsx
+
+Use Google Maps API
+
+Load markers dynamically
+
+Attach click events
+
+Alerts Feature
+
+File: src/components/AlertModal.jsx
+
+Form validation
+
+POST /alerts endpoint
+
+ROUTING
+/ -> Home
+/dashboard -> Main Map
+/alerts -> Alerts Manager
+/settings -> Preferences
+
+API SERVICES
+GET /stations
+GET /prices
+POST /alerts
+GET /alerts
+
+DATABASE SCHEMA
+
+Use PostgreSQL with tables:
+
+users
+
+stations
+
+fuel_prices
+
+alerts
+
+AUTH IMPLEMENTATION
+
+OAuth Google
+
+JWT token storage
+
+Protected routes
+
+STYLING
+
+Color Palette:
+
+Primary: #2563EB
+
+Accent: #22C55E
+
+Warning: #F59E0B
+
+Typography:
+
+Inter font
+
+16px base size
+
+TESTING CHECKLIST
+
+ Map loads
+
+ Stations display
+
+ Alerts trigger
+
+ Responsive UI
+
+ No console errors
+
+DEPLOYMENT
+npm run build
+Deploy via Vercel
+
+SECTION 19: EDGE CASES & ERROR HANDLING
+
+Network Failure:
+
+Detect via Axios interceptors
+
+Display retry UI
+
+Log via Sentry
+
+Invalid Input:
+
+Form validation
+
+User feedback messages
+
+API Timeout:
+
+Retry with exponential backoff
+
+SECTION 20: ACCESSIBILITY CHECKLIST
+
+ Semantic HTML
+
+ ARIA labels
+
+ Keyboard navigation
+
+ Screen reader compatibility
+
+ Color contrast compliance
+
+ Form accessibility
+
+ Focus indicators
+
+ Responsive zoom support
+
+END OF PRD
